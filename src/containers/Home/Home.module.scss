@@ -1,0 +1,66 @@
+@import "styles/main.scss";
+
+.HeroSpace {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: $base-color;
+  background-repeat: no-repeat;
+  background-image: url("/images/landscape.svg");
+  background-position: 50% center;
+  background-size: auto 1000px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+
+  .HeroSection {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 200px;
+
+    .HeroSection-logo {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      display: block;
+      margin-bottom: 50px;
+
+      @media screen and (max-width: 600px) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .HeroSection-button {
+      padding: 18px 40px;
+      font-size: 1.4rem;
+      background: #457026;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 5px;
+      border-bottom: 7px solid #335d2a;
+      background-position: center;
+      transition: background 0.8s;
+      outline: 0;
+
+      &:hover {
+        background: #427337 radial-gradient(circle, transparent 1%, #427337 1%)
+          center/15000%;
+      }
+      &:active {
+        background-color: #87c878;
+        background-size: 100%;
+        transition: background 0s;
+      }
+
+      @media screen and (max-width: 600px) {
+        padding: 15px 30px;
+      }
+    }
+
+    @media screen and (max-width: 997px) {
+    }
+  }
+}
