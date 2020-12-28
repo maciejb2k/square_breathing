@@ -1,0 +1,8 @@
+@import "styles/base/reset";
+@import "styles/base/normalize";
+@import "styles/utils/overrides";
+@import "styles/utils/variables";
+
+body {
+  background: $base-color;
+}

@@ -2,7 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 
+import WebFont from "webfontloader";
+
 import App from "./App";
+
+import "styles/main.scss";
+
+WebFont.load({
+  google: {
+    families: ["Montserrat:400,600,700"],
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
