@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef, useMemo} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import {gsap} from "gsap";
 
 import styles from "./Home.module.scss";
