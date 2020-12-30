@@ -2,11 +2,11 @@ import React from "react";
 import {screen} from "@testing-library/dom";
 import {render} from "@testing-library/react";
 
-import Home from "containers/Home";
+import HeroSpace from "components/HeroSpace";
 
-describe("Home.tsx", () => {
+describe("HeroSpace.tsx", () => {
   it("should render start button", () => {
-    render(<Home />);
+    render(<HeroSpace />);
     const beginButton = screen.getByText(/Begin Breathing/i);
     expect(beginButton).toBeInTheDocument();
   });

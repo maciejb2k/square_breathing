@@ -1,0 +1,256 @@
+@import "styles/main.scss";
+
+.Setup {
+  width: 100%;
+  height: 0;
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  display: none;
+  color: #ffffff;
+
+  .Setup-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 100vh;
+    opacity: 0;
+
+    .Setup-left,
+    .Setup-right {
+      width: 50%;
+    }
+
+    .Setup-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .Setup-title {
+      font-size: 6rem;
+      margin-bottom: 20px;
+    }
+    .Setup-desc {
+      font-size: 1.8rem;
+      color: #bbbbbb;
+      max-width: 450px;
+      margin-bottom: 40px;
+    }
+
+    .SetupForm-submit {
+      display: block;
+      padding: 15px 80px;
+      background: #457026;
+      font-weight: 600;
+      border-radius: 5px;
+    }
+
+    .SetupForm {
+      width: 100%;
+      display: flex;
+      flex-flow: wrap;
+
+      .SetupFormGroup {
+        max-width: 50%;
+        padding: 20px 20px 10px;
+        border-radius: 7px;
+        margin-bottom: 20px;
+        background: rgba(0, 0, 0, 0.4);
+
+        .SetupFormGroup-header {
+          .SetupFormGroup-label {
+            font-weight: 400;
+            font-size: 1.6rem;
+
+            .SetupFormGroup-label--em {
+              font-weight: 600;
+            }
+          }
+        }
+
+        .SetupFormGroup-content {
+          display: flex;
+          align-items: center;
+
+          .SetupFormGroup-input {
+            -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+            width: 100%; /* Specific width is required for Firefox. */
+            background: transparent; /* Otherwise white in Chrome */
+
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+            }
+
+            &:focus {
+              outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+            }
+
+            &::-ms-track {
+              width: 100%;
+              cursor: pointer;
+
+              /* Hides the slider so custom styles can be added */
+              background: transparent;
+              border-color: transparent;
+              color: transparent;
+            }
+
+            /* Special styling for WebKit/Blink */
+            &::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              border: 1px solid #000000;
+              height: 20px;
+              width: 20px;
+              border: 2px solid #ffffff;
+              border-radius: 50px;
+              cursor: pointer;
+              margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+              box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+            }
+
+            &:focus::-webkit-slider-thumb {
+            }
+
+            &::-webkit-slider-runnable-track {
+              width: 100%;
+              height: 5px;
+              cursor: pointer;
+              border-radius: 50px;
+            }
+
+            &:focus::-webkit-slider-runnable-track {
+            }
+          }
+
+          .SetupFormGroup-value {
+            padding: 10px;
+            width: 80px;
+            text-align: right;
+            font-size: 1.4rem;
+
+            .SetupFormGroup-seconds {
+              font-weight: 600;
+              margin-right: 2px;
+              font-size: 2.4rem;
+            }
+          }
+        }
+
+        &:nth-child(odd) {
+          margin-right: 20px;
+        }
+
+        &:nth-last-child(-n + 2) {
+          margin-bottom: 0;
+        }
+      }
+
+      .SetupFormGroup--inhale {
+        .SetupFormGroup-content {
+          .SetupFormGroup-input {
+            &::-webkit-slider-thumb {
+              background: #5d9c2f;
+            }
+
+            &:focus::-webkit-slider-thumb {
+              background: #ffffff;
+            }
+
+            &::-webkit-slider-runnable-track {
+              background: rgba(69, 112, 38, 0.8);
+            }
+
+            &:focus::-webkit-slider-runnable-track {
+              background: #5d9c2f;
+            }
+          }
+        }
+      }
+
+      .SetupFormGroup--holdInhale {
+        .SetupFormGroup-content {
+          .SetupFormGroup-input {
+            &::-webkit-slider-thumb {
+              background: #e74c3c;
+            }
+
+            &:focus::-webkit-slider-thumb {
+              background: #ffffff;
+            }
+
+            &::-webkit-slider-runnable-track {
+              background: rgba(112, 38, 38, 0.8);
+            }
+
+            &:focus::-webkit-slider-runnable-track {
+              background: #e74c3c;
+            }
+          }
+        }
+      }
+
+      .SetupFormGroup--exhale {
+        .SetupFormGroup-content {
+          .SetupFormGroup-input {
+            &::-webkit-slider-thumb {
+              background: #3498db;
+            }
+
+            &:focus::-webkit-slider-thumb {
+              background: #ffffff;
+            }
+
+            &::-webkit-slider-runnable-track {
+              background: rgba(60, 136, 223, 0.5);
+            }
+
+            &:focus::-webkit-slider-runnable-track {
+              background: #3498db;
+            }
+          }
+        }
+      }
+
+      .SetupFormGroup--holdExhale {
+        .SetupFormGroup-content {
+          .SetupFormGroup-input {
+            &::-webkit-slider-thumb {
+              background: #e67e22;
+            }
+
+            &:focus::-webkit-slider-thumb {
+              background: #ffffff;
+            }
+
+            &::-webkit-slider-runnable-track {
+              background: rgba(112, 80, 38, 0.8);
+            }
+
+            &:focus::-webkit-slider-runnable-track {
+              background: #e67e22;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .Setup-close {
+    position: fixed;
+    top: 50px;
+    right: 70px;
+    color: #ffffff;
+    font-size: 3rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

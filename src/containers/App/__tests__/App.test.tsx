@@ -6,6 +6,5 @@ import App from "containers/App";
 describe("App.tsx", () => {
   it("should render component", () => {
     const {container} = render(<App />);
-    expect(container.querySelector(".App")).toBeInTheDocument();
   });
 });

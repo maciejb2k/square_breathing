@@ -1,9 +1,15 @@
 import React, {useEffect, useState, useRef} from "react";
 import {gsap} from "gsap";
 
-import styles from "./Home.module.scss";
+import styles from "./HeroSpace.module.scss";
 
-const Home: React.FC = () => {
+type AppProps = {
+  openConfigOpen: () => void;
+};
+
+const HeroSpace: React.FC<AppProps> = (props: AppProps) => {
+  const {openConfigOpen} = props;
+
   const [isLoading, setIsLoading] = useState(true);
 
   const timeline = gsap.timeline({paused: true});
@@ -32,26 +38,29 @@ const Home: React.FC = () => {
 
   return isLoading ? (
     <div className={styles["SpinnerWrapper"]}>
-      <div className={styles["spinner"]}>
-        <div className={styles["double-bounce1"]}></div>
-        <div className={styles["double-bounce2"]}></div>
-      </div>
+      <div className={styles["Spinner"]}></div>
     </div>
   ) : (
-    <main className={styles["HeroSpace"]} ref={heroSpaceRef}>
-      <section className={styles["HeroSection"]}>
-        <img
-          className={styles["HeroSection-logo"]}
-          src="/images/Logo.png"
-          alt="logo"
-          ref={logoRef}
-        />
-        <button className={styles["HeroSection-button"]} ref={buttonRef}>
-          Begin Breathing
-        </button>
-      </section>
-    </main>
+    <>
+      <main className={styles["HeroSpace"]} ref={heroSpaceRef}>
+        <section className={styles["HeroSection"]}>
+          <img
+            className={styles["HeroSection-logo"]}
+            src="/images/Logo.png"
+            alt="logo"
+            ref={logoRef}
+          />
+          <button
+            className={styles["HeroSection-button"]}
+            ref={buttonRef}
+            onClick={openConfigOpen}
+          >
+            Begin Breathing
+          </button>
+        </section>
+      </main>
+    </>
   );
 };
 
-export default Home;
+export default HeroSpace;
