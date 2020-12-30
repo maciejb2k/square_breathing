@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/square_breathing/static/css/main.5f9d7621.chunk.css",
+    "main.js": "/square_breathing/static/js/main.c82a0757.chunk.js",
+    "main.js.map": "/square_breathing/static/js/main.c82a0757.chunk.js.map",
+    "runtime-main.js": "/square_breathing/static/js/runtime-main.2519c600.js",
+    "runtime-main.js.map": "/square_breathing/static/js/runtime-main.2519c600.js.map",
+    "static/css/2.6fdab21f.chunk.css": "/square_breathing/static/css/2.6fdab21f.chunk.css",
+    "static/js/2.2fe9807a.chunk.js": "/square_breathing/static/js/2.2fe9807a.chunk.js",
+    "static/js/2.2fe9807a.chunk.js.map": "/square_breathing/static/js/2.2fe9807a.chunk.js.map",
+    "static/js/3.22a33ee2.chunk.js": "/square_breathing/static/js/3.22a33ee2.chunk.js",
+    "static/js/3.22a33ee2.chunk.js.map": "/square_breathing/static/js/3.22a33ee2.chunk.js.map",
+    "index.html": "/square_breathing/index.html",
+    "precache-manifest.cf3e29748ad13c40015ee0e6a86a7529.js": "/square_breathing/precache-manifest.cf3e29748ad13c40015ee0e6a86a7529.js",
+    "service-worker.js": "/square_breathing/service-worker.js",
+    "static/css/2.6fdab21f.chunk.css.map": "/square_breathing/static/css/2.6fdab21f.chunk.css.map",
+    "static/css/main.5f9d7621.chunk.css.map": "/square_breathing/static/css/main.5f9d7621.chunk.css.map",
+    "static/js/2.2fe9807a.chunk.js.LICENSE.txt": "/square_breathing/static/js/2.2fe9807a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2519c600.js",
+    "static/css/2.6fdab21f.chunk.css",
+    "static/js/2.2fe9807a.chunk.js",
+    "static/css/main.5f9d7621.chunk.css",
+    "static/js/main.c82a0757.chunk.js"
+  ]
+}
