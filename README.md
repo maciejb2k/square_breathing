@@ -4,4 +4,33 @@
 
 Simple web app designed for square breathing technique.
 
+Technology stack: `React`
+
+## Design
+
+I've came up with UI idea, and below are few screenshots of it.
+
 ![preview](https://user-images.githubusercontent.com/6316812/103230021-a3ca4000-4934-11eb-987d-7ba991295d6c.png)
+![setup](https://user-images.githubusercontent.com/6316812/103341763-0f70f200-4a88-11eb-8794-bc03c3296898.png)
+
+## Installation
+
+Download this repo:
+
+```
+git clone https://github.com/maciejb2k/square_breathing.git
+```
+
+Install using NPM:
+
+```
+npm install
+npm run start
+```
+
+Install using Yarn:
+
+```
+yarn install
+yarn start
+```
