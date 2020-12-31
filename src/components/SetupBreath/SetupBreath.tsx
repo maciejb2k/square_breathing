@@ -8,15 +8,26 @@ import {FiX} from "react-icons/fi";
 
 import styles from "./SetupBreath.module.scss";
 
+import {Settings} from "utils/types";
+
+// TODO - RDW & Input Validation
+
 type AppProps = {
   isConfigOpen: boolean;
   closeConfigOpen: () => void;
+  startBreathing: () => void;
+  setBreathingSettings: (settings: Settings) => void;
 };
 
 const SetupBreath: React.FC<AppProps> = (props: AppProps) => {
-  const {isConfigOpen, closeConfigOpen} = props;
+  const {
+    isConfigOpen,
+    closeConfigOpen,
+    setBreathingSettings,
+    startBreathing,
+  } = props;
 
-  const formik = useFormik({
+  const formik = useFormik<Settings>({
     initialValues: {
       inhaleTime: 5,
       holdInhaleTime: 5,
@@ -25,7 +36,9 @@ const SetupBreath: React.FC<AppProps> = (props: AppProps) => {
       time: "05:00",
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      closeConfigOpen();
+      setBreathingSettings(values);
+      startBreathing();
     },
   });
 
