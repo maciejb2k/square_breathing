@@ -4,7 +4,10 @@
 
 Simple web app designed for square breathing technique.
 
-Technology stack: `React`
+Right now it's in the developement stage, so it's not going to work after
+installling, but when I'll finish it, I'll publish working online version.
+
+Technology stack: `React`, `Typescript`
 
 ## Design
 
