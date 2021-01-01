@@ -1,6 +1,6 @@
 {
   "name": "square_breathing",
-  "homepage": "https://maciejb2k.github.io/square_breathing/",
+  "homepage": "http://maciejbiel.pl/square_breathing",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,7 +37,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/ --ext .js,.ts,.jsx,.tsx",
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "husky": {

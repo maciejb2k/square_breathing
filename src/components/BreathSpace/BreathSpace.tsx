@@ -78,7 +78,6 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
       isStarted &&
       !(Object.keys(settings).length === 0 && settings.constructor === Object)
     ) {
-      console.log(isStarted, settings);
       const inhaleSeconds = settings.inhaleTime;
       const inhaleHoldSeconds = settings.inhaleTime + settings.holdInhaleTime;
       const inhaleHoldExhaleSeconds =

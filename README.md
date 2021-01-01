@@ -4,8 +4,10 @@
 
 Simple web app designed for square breathing technique.
 
-Right now it's in the developement stage, so it's not going to work after
-installling, but when I'll finish it, I'll publish working online version.
+Right now it's in the developement stage, so it's not going to work properly,
+but when I'll finish it, I'll publish working version.
+
+Dev version (without RWD): https://maciejbiel.pl/square_breathing/
 
 Technology stack: `React`, `Typescript`
 

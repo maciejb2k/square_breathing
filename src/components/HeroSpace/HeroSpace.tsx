@@ -42,11 +42,17 @@ const HeroSpace: React.FC<AppProps> = (props: AppProps) => {
     </div>
   ) : (
     <>
-      <main className={styles["HeroSpace"]} ref={heroSpaceRef}>
+      <main
+        className={styles["HeroSpace"]}
+        ref={heroSpaceRef}
+        style={{
+          backgroundImage: `url("${process.env.PUBLIC_URL}/images/landscape.svg")`,
+        }}
+      >
         <section className={styles["HeroSection"]}>
           <img
             className={styles["HeroSection-logo"]}
-            src="/images/Logo.png"
+            src={`${process.env.PUBLIC_URL}/images/Logo.png`}
             alt="logo"
             ref={logoRef}
           />
