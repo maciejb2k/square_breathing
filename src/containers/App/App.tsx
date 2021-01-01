@@ -20,13 +20,13 @@ WebFont.load({
 
 const App: React.FC = () => {
   const [isConfigOpen, setConfig] = useState(false);
-  const [isStarted, setIsStarted] = useState(true);
+  const [isStarted, setIsStarted] = useState(false);
   const [settings, setSettings] = useState<SettingsType>({
     inhaleTime: 5,
     holdInhaleTime: 5,
     exhaleTime: 5,
     holdExhaleTime: 5,
-    time: "05:00",
+    time: "00:00",
   });
 
   const appContainer = useRef(null);
@@ -40,11 +40,15 @@ const App: React.FC = () => {
   );
 
   useEffect(() => {
-    // timeline.to(appContainer.current, {
-    //   translateY: "-100vh",
-    //   duration: 1,
-    //   ease: "power3.inOut",
-    // });
+    timeline.to(
+      appContainer.current,
+      {
+        translateY: "-100vh",
+        duration: 1,
+        ease: "power3.inOut",
+      },
+      0,
+    );
   }, [timeline]);
 
   useEffect(() => {
@@ -73,11 +77,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div
-      ref={appContainer}
-      style={{transform: "translateY(-100vh)"}}
-      className={styles["App"]}
-    >
+    <div ref={appContainer} className={styles["App"]}>
       <HeroSpace openConfigOpen={openConfigOpen} />
       <BreathSpace
         isStarted={isStarted}

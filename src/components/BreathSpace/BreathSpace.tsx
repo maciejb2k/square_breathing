@@ -6,6 +6,7 @@ import Countdown from "react-countdown";
 
 import styles from "./BreathSpace.module.scss";
 
+import {timeToSeconds} from "utils/breathUtils";
 import {SettingsType} from "utils/types";
 
 type AppProps = {
@@ -16,13 +17,7 @@ type AppProps = {
 
 const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
   const {isStarted, settings, stopBreathing} = props;
-
-  const timeLeft = useState(0);
-
-  const timeline = useMemo(
-    () => gsap.timeline({paused: true, reversed: false}),
-    [],
-  );
+  const [duration, setDuration] = useState(0);
 
   const boxTimeline = useMemo(
     () =>
@@ -46,9 +41,23 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
   const refHoldInhale = useRef(null);
   const refExhale = useRef(null);
   const refHoldExhale = useRef(null);
+  const refTime = useRef(null);
 
   const exitBreathing = () => {
-    boxTimeline.invalidate().restart().pause();
+    gsap.to(container.current, {
+      opacity: 0,
+      duration: 1,
+    });
+    gsap.to(refTime.current, {
+      opacity: 0,
+      duration: 1,
+    });
+
+    boxTimeline.pause(0);
+    boxTimeline.clear();
+    boxTimeline.restart();
+
+    setDuration(0);
     stopBreathing();
   };
 
@@ -69,6 +78,7 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
       isStarted &&
       !(Object.keys(settings).length === 0 && settings.constructor === Object)
     ) {
+      console.log(isStarted, settings);
       const inhaleSeconds = settings.inhaleTime;
       const inhaleHoldSeconds = settings.inhaleTime + settings.holdInhaleTime;
       const inhaleHoldExhaleSeconds =
@@ -79,6 +89,10 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
         settings.exhaleTime +
         settings.holdExhaleTime;
 
+      const miliseconds = timeToSeconds(settings.time) * 1000 + 500;
+      setDuration(miliseconds);
+
+      boxTimeline.restart();
       boxTimeline
         // Clear Props because gsap sucks dick
         .to(barBottom.current, {clearProps: "all", duration: 0}, 0)
@@ -248,13 +262,18 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
           inhaleHoldExhaleHoldSeconds,
         );
 
+      gsap.to(container.current, {opacity: 1, duration: 0.5, delay: 0.5});
+      gsap.to(refTime.current, {opacity: 1, duration: 0.5, delay: 0.5});
       boxTimeline.play();
     }
-  }, [isStarted, boxTimeline, settings, timeline]);
+  }, [isStarted, boxTimeline, settings]);
 
   return (
-    <div ref={container} className={styles["BreathSpace"]}>
-      <div className={classNames("", styles["BreathSpace-container"])}>
+    <div className={styles["BreathSpace"]}>
+      <div
+        ref={container}
+        className={classNames("", styles["BreathSpace-container"])}
+      >
         <header className={styles["BreathSpace-header"]}>
           <button
             className={styles["BreathSpace-close"]}
@@ -310,7 +329,7 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
                 styles["BreathText-line--holdExhale"],
               )}
             ></div>
-            <p className={styles["BreathText-tips"]}>
+            <p ref={refTime} className={styles["BreathText-tips"]}>
               Try to experience every part of your body.
             </p>
           </div>
@@ -385,12 +404,13 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
                 )}
               ></div>
             </div>
-            <p className={styles["BreathBox-time"]}>
-              <Countdown
-                className={styles["BreathSpace-time"]}
-                date={Date.now() + 500000}
-                renderer={countdownRenderer}
-              />
+            <p ref={refTime} className={styles["BreathBox-timeLeft"]}>
+              {duration > 0 ? (
+                <Countdown
+                  date={Date.now() + duration}
+                  renderer={countdownRenderer}
+                />
+              ) : null}
             </p>
           </div>
           <div className={styles["BreathIndicators"]}>
