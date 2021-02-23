@@ -11,15 +11,17 @@
   bottom: 0;
   opacity: 0;
   display: none;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
+  padding: 100px 0;
 
   .Setup-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     position: relative;
-    height: 100vh;
+    max-width: 600px;
     opacity: 0;
 
     .Setup-left,
@@ -38,15 +40,15 @@
     }
 
     .Setup-title {
-      font-size: 6rem;
-      margin-bottom: 40px;
+      font-size: 5rem;
+      margin-bottom: 10px;
       text-align: center;
     }
+
     .Setup-desc {
       font-size: 1.8rem;
       color: #bbbbbb;
-      max-width: 450px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       text-align: center;
     }
 
@@ -114,30 +116,15 @@
       }
     }
 
-    .SetupForm-submit {
-      display: block;
-      padding: 15px 80px;
-      background: #457026;
-      font-weight: 600;
-      border-radius: 5px;
-      transition: 0.1s all;
-
-      &:focus,
-      &:hover {
-        background: #375c1d;
-      }
-    }
-
     .SetupForm {
-      max-width: 600px;
       display: flex;
-      align-items: center;
       justify-content: center;
       flex-flow: wrap;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
+      min-height: 0;
+      min-width: 0;
 
       .SetupFormGroup {
-        max-width: 50%;
         padding: 20px 20px 10px;
         border-radius: 7px;
         margin-bottom: 20px;
@@ -161,7 +148,7 @@
           .SetupFormGroup-input {
             -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
             width: 100%; /* Specific width is required for Firefox. */
-            background: transparent; /* Otherwise white in Chrome */
+            background: transparent;
 
             &::-webkit-slider-thumb {
               -webkit-appearance: none;
@@ -262,6 +249,20 @@
         &:nth-last-child(-n + 2) {
           margin-bottom: 0;
         }
+
+        @media screen and (max-width: 600px) {
+          &:nth-child(odd) {
+            margin-right: 0;
+          }
+
+          &:nth-last-child(-n + 2) {
+            margin-bottom: 10px;
+          }
+
+          margin: 0 0 10px;
+          max-width: 100%;
+          width: 100%;
+        }
       }
 
       .SetupFormGroup--inhale {
@@ -351,6 +352,10 @@
           }
         }
       }
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+      }
     }
 
     .SetupTime {
@@ -358,6 +363,10 @@
       flex-direction: column;
       margin-bottom: 50px;
       text-align: center;
+      width: 100%;
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
 
       .SetupTime-label {
         display: block;
@@ -377,11 +386,37 @@
         font-weight: 600;
         font-size: 2.4rem;
       }
+
+      @media screen and (max-width: 600px) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .SetupForm-submit {
+    display: block;
+    padding: 15px 0;
+    background: #457026;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: 0.1s all;
+    width: 100%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:focus,
+    &:hover {
+      background: #375c1d;
+    }
+
+    @media screen and (max-width: 600px) {
+      max-width: 100%;
     }
   }
 
   .Setup-close {
-    position: fixed;
+    position: absolute;
     top: 50px;
     right: 70px;
     color: #ffffff;
@@ -392,5 +427,14 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+
+    @media screen and (max-width: 600px) {
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    overflow-y: scroll;
   }
 }

@@ -3,7 +3,6 @@ import {gsap} from "gsap";
 import classNames from "classnames";
 import {useFormik} from "formik";
 import MaskedInput from "react-text-mask";
-
 import {FiX} from "react-icons/fi";
 
 import styles from "./SetupBreath.module.scss";
@@ -52,7 +51,7 @@ const SetupBreath: React.FC<AppProps> = (props: AppProps) => {
 
   useEffect(() => {
     timeline
-      .to(setupContainer.current, {display: "block", duration: 0})
+      .to(setupContainer.current, {display: "flex", duration: 0})
       .to(setupContainer.current, {
         opacity: 1,
         height: "100vh",
@@ -241,14 +240,6 @@ const SetupBreath: React.FC<AppProps> = (props: AppProps) => {
           <label htmlFor="time" className={styles["SetupTime-label"]}>
             Time
           </label>
-          {/* <input
-            id="time"
-            name="time"
-            className={styles["SetupTime-input"]}
-            value={formik.values.time}
-            onChange={formik.handleChange}
-            type="text"
-          /> */}
           <MaskedInput
             id="time"
             name="time"
@@ -259,66 +250,6 @@ const SetupBreath: React.FC<AppProps> = (props: AppProps) => {
             mask={[/[0-5]/, /[0-9]/, ":", /[0-5]/, /[0-9]/]}
           />
         </div>
-        {/* <div className={styles["SetupOverview"]}>
-          <div className={styles["SetupSummary"]}>
-            <div
-              className={classNames(
-                styles["SetupSummary-item"],
-                styles["SetupSummary-item--inhale"],
-              )}
-            >
-              <p className={styles["SetupSummary-value"]}>
-                <span className={styles["SetupSummary-sec"]}>
-                  {formik.values.inhaleTime}
-                </span>
-                s
-              </p>
-              <p className={styles["SetupSummary-label"]}>Inhale</p>
-            </div>
-            <div
-              className={classNames(
-                styles["SetupSummary-item"],
-                styles["SetupSummary-item--holdInhale"],
-              )}
-            >
-              <p className={styles["SetupSummary-value"]}>
-                <span className={styles["SetupSummary-sec"]}>
-                  {formik.values.holdInhaleTime}
-                </span>
-                s
-              </p>
-              <p className={styles["SetupSummary-label"]}>Hold</p>
-            </div>
-            <div
-              className={classNames(
-                styles["SetupSummary-item"],
-                styles["SetupSummary-item--exhale"],
-              )}
-            >
-              <p className={styles["SetupSummary-value"]}>
-                <span className={styles["SetupSummary-sec"]}>
-                  {formik.values.exhaleTime}
-                </span>
-                s
-              </p>
-              <p className={styles["SetupSummary-label"]}>Exhale</p>
-            </div>
-            <div
-              className={classNames(
-                styles["SetupSummary-item"],
-                styles["SetupSummary-item--holdExhale"],
-              )}
-            >
-              <p className={styles["SetupSummary-value"]}>
-                <span className={styles["SetupSummary-sec"]}>
-                  {formik.values.holdExhaleTime}
-                </span>
-                s
-              </p>
-              <p className={styles["SetupSummary-label"]}>Hold</p>
-            </div>
-          </div>
-        </div> */}
         <button className={styles["SetupForm-submit"]} type="submit">
           Start
         </button>

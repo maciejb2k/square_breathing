@@ -93,7 +93,6 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
 
       boxTimeline.restart();
       boxTimeline
-        // Clear Props because gsap sucks dick
         .to(barBottom.current, {clearProps: "all", duration: 0}, 0)
         .to(barLeft.current, {clearProps: "all", duration: 0}, 0)
 
@@ -112,6 +111,7 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
 
         // Hold Inhale
         .to(refInhale.current, {opacity: 0, duration: 0.3}, inhaleSeconds)
+        .to(refInhale.current, {display: "none"}, inhaleSeconds + 0.3)
         .to(
           refHoldInhale.current,
           {opacity: 1, duration: 0.3},
@@ -269,10 +269,7 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
 
   return (
     <div className={styles["BreathSpace"]}>
-      <div
-        ref={container}
-        className={classNames("", styles["BreathSpace-container"])}
-      >
+      <div ref={container} className={styles["BreathSpace-container"]}>
         <header className={styles["BreathSpace-header"]}>
           <button
             className={styles["BreathSpace-close"]}

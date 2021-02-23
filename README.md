@@ -2,12 +2,11 @@
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
-Simple web app designed for square breathing technique.
+Simple web app designed for square breathing technique, which stimulates vagus
+nerve and parasympathetic nervous system.
 
-Right now it's in the developement stage, so it's not going to work properly,
-but when I'll finish it, I'll publish working version.
-
-Dev version (without RWD): https://maciejbiel.pl/square_breathing/
+Online Version: https://maciejbiel.pl/square_breathing/ (It should work well
+only in Chrome, I didn't make it cross browser working yet)
 
 Technology stack: `React`, `Typescript`
 
