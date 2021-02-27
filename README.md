@@ -7,8 +7,6 @@ nerve and parasympathetic nervous system.
 
 Online Version: https://maciejbiel.pl/square_breathing/
 
-It should work well only in Chrome, I didn't make it cross browser working yet.
-
 Technology stack: `React`, `Typescript`
 
 ## Design
