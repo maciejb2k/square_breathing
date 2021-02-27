@@ -3,7 +3,7 @@
 .Setup {
   width: 100%;
   height: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.92);
   position: absolute;
   top: 0;
   left: 0;
@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: center;
     position: relative;
-    max-width: 600px;
+    max-width: 700px;
     opacity: 0;
 
     .Setup-left,
@@ -128,7 +128,7 @@
         padding: 20px 20px 10px;
         border-radius: 7px;
         margin-bottom: 20px;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.5);
 
         .SetupFormGroup-header {
           .SetupFormGroup-label {
@@ -146,6 +146,7 @@
           align-items: center;
 
           .SetupFormGroup-input {
+            /* Resetting default */
             -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
             width: 100%; /* Specific width is required for Firefox. */
             background: transparent;
@@ -154,21 +155,22 @@
               -webkit-appearance: none;
             }
 
-            &:focus {
-              outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
-            }
-
+            /* Firefox */
             &::-ms-track {
               width: 100%;
               cursor: pointer;
-
-              /* Hides the slider so custom styles can be added */
               background: transparent;
               border-color: transparent;
               color: transparent;
             }
 
-            /* Special styling for WebKit/Blink */
+            &:focus {
+              outline: none;
+            }
+
+            // -=-=-=-=-=-=-=-=-=-
+
+            /* Chrome Thmub */
             &::-webkit-slider-thumb {
               -webkit-appearance: none;
               border: 1px solid #000000;
@@ -181,10 +183,43 @@
               box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
             }
 
+            /* Firefox Thmub */
+            &::-moz-range-thumb {
+              border: 1px solid #000000;
+              height: 15px;
+              width: 15px;
+              border: 2px solid #ffffff;
+              border-radius: 50px;
+              cursor: pointer;
+              margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+              box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+            }
+
+            /* IE Thmub*/
+            &::-moz-range-thumb {
+              border: 1px solid #000000;
+              height: 15px;
+              width: 15px;
+              border: 2px solid #ffffff;
+              border-radius: 50px;
+              cursor: pointer;
+              margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+              box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+            }
+
+            // -=-=-=-=-=-=-=-=-=-
+
             &:focus::-webkit-slider-thumb {
             }
 
             &::-webkit-slider-runnable-track {
+              width: 100%;
+              height: 5px;
+              cursor: pointer;
+              border-radius: 50px;
+            }
+
+            &::-moz-range-track {
               width: 100%;
               height: 5px;
               cursor: pointer;
@@ -268,6 +303,8 @@
       .SetupFormGroup--inhale {
         .SetupFormGroup-content {
           .SetupFormGroup-input {
+            /* Chrome */
+
             &::-webkit-slider-thumb {
               background: #5d9c2f;
             }
@@ -283,6 +320,24 @@
             &:focus::-webkit-slider-runnable-track {
               background: #5d9c2f;
             }
+
+            /* Firefox */
+
+            &::-moz-range-thumb {
+              background: #5d9c2f;
+            }
+
+            &:focus::-moz-range-thumb {
+              background: #ffffff;
+            }
+
+            &::-moz-range-track {
+              background: rgba(69, 112, 38, 0.8);
+            }
+
+            &:focus::-moz-range-track {
+              background: #5d9c2f;
+            }
           }
         }
       }
@@ -290,6 +345,8 @@
       .SetupFormGroup--holdInhale {
         .SetupFormGroup-content {
           .SetupFormGroup-input {
+            /* Chrome */
+
             &::-webkit-slider-thumb {
               background: #e74c3c;
             }
@@ -305,6 +362,24 @@
             &:focus::-webkit-slider-runnable-track {
               background: #e74c3c;
             }
+
+            /* Firefox */
+
+            &::-moz-range-thumb {
+              background: #e74c3c;
+            }
+
+            &:focus::-moz-range-thumb {
+              background: #ffffff;
+            }
+
+            &::-moz-range-track {
+              background: rgba(112, 38, 38, 0.8);
+            }
+
+            &:focus::-moz-range-track {
+              background: #e74c3c;
+            }
           }
         }
       }
@@ -312,6 +387,8 @@
       .SetupFormGroup--exhale {
         .SetupFormGroup-content {
           .SetupFormGroup-input {
+            /* Chrome */
+
             &::-webkit-slider-thumb {
               background: #3498db;
             }
@@ -327,6 +404,24 @@
             &:focus::-webkit-slider-runnable-track {
               background: #3498db;
             }
+
+            /* Firefox */
+
+            &::-moz-range-thumb {
+              background: #3498db;
+            }
+
+            &:focus::-moz-range-thumb {
+              background: #ffffff;
+            }
+
+            &::-moz-range-track {
+              background: rgba(60, 136, 223, 0.5);
+            }
+
+            &:focus::-moz-range-track {
+              background: #3498db;
+            }
           }
         }
       }
@@ -334,6 +429,8 @@
       .SetupFormGroup--holdExhale {
         .SetupFormGroup-content {
           .SetupFormGroup-input {
+            /* Chrome */
+
             &::-webkit-slider-thumb {
               background: #e67e22;
             }
@@ -347,6 +444,24 @@
             }
 
             &:focus::-webkit-slider-runnable-track {
+              background: #e67e22;
+            }
+
+            /* Firefox */
+
+            &::-moz-range-thumb {
+              background: #e67e22;
+            }
+
+            &:focus::-moz-range-thumb {
+              background: #ffffff;
+            }
+
+            &::-moz-range-track {
+              background: rgba(112, 80, 38, 0.8);
+            }
+
+            &:focus::-moz-range-track {
               background: #e67e22;
             }
           }
