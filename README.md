@@ -5,6 +5,8 @@
 Simple web app designed for square breathing technique, which stimulates vagus
 nerve and parasympathetic nervous system.
 
+Online Version: https://square-breathing.vercel.app/
+
 Technology stack: `React`, `Typescript`
 
 ## Design
