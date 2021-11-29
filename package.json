@@ -1,6 +1,6 @@
 {
   "name": "square_breathing",
-  "homepage": "http://maciejbiel.pl/square_breathing",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,11 +1,9 @@
 # Square Breathing
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Abandoned – Initial development has started, but there has not yet been a stable, usable release; the project has been abandoned and the author(s) do not intend on continuing development.](https://www.repostatus.org/badges/latest/abandoned.svg)](https://www.repostatus.org/#abandoned)
 
 Simple web app designed for square breathing technique, which stimulates vagus
 nerve and parasympathetic nervous system.
-
-Online Version: https://maciejbiel.pl/square_breathing/
 
 Technology stack: `React`, `Typescript`
 
