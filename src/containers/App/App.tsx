@@ -19,6 +19,7 @@ WebFont.load({
 });
 
 const App: React.FC = () => {
+  const [triggerRepaint, setTriggerRepaint] = useState(false);
   const [isConfigOpen, setConfig] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
   const [settings, setSettings] = useState<SettingsType>({
@@ -29,7 +30,8 @@ const App: React.FC = () => {
     time: "00:00",
   });
 
-  const appContainer = useRef(null);
+  const appContainer = useRef<HTMLDivElement>(null);
+
   const timeline = useMemo(
     () =>
       gsap.timeline({
@@ -43,7 +45,7 @@ const App: React.FC = () => {
     timeline.to(
       appContainer.current,
       {
-        translateY: "-100vh",
+        yPercent: -50,
         duration: 1,
         ease: "power3.inOut",
       },
@@ -76,20 +78,39 @@ const App: React.FC = () => {
     setConfig(false);
   };
 
+  // I have to use this fucking bullshit rerender method,
+  // because Chromium engine is fucking retarded and persits
+  // translateY inline style after refreshing, or persists that
+  // state of gsap timeline. Everything works in Firefox but
+  // this is just something very strange.
+  // There is somewhere a bug, but I'm kinda sure that it's not
+  // related to app but to Chromium.
+  // I don't fucking care about that app anymore, so i'm putting
+  // this ugly force redreaw.
+  useEffect(() => {
+    setTimeout(() => {
+      setTriggerRepaint(true);
+    }, 250);
+  }, []);
+
   return (
     <div ref={appContainer} className={styles["App"]}>
-      <HeroSpace openConfigOpen={openConfigOpen} />
-      <BreathSpace
-        isStarted={isStarted}
-        settings={settings}
-        stopBreathing={stopBreathing}
-      />
-      <SetupBreath
-        isConfigOpen={isConfigOpen}
-        closeConfigOpen={closeConfigOpen}
-        startBreathing={startBreathing}
-        setBreathingSettings={setBreathingSettings}
-      />
+      { triggerRepaint && (
+        <>
+          <SetupBreath
+            isConfigOpen={isConfigOpen}
+            closeConfigOpen={closeConfigOpen}
+            startBreathing={startBreathing}
+            setBreathingSettings={setBreathingSettings}
+          />
+          <HeroSpace openConfigOpen={openConfigOpen} />
+          <BreathSpace
+            isStarted={isStarted}
+            settings={settings}
+            stopBreathing={stopBreathing}
+          />
+        </>
+      )}
     </div>
   );
 };

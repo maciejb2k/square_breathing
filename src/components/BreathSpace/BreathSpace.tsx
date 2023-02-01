@@ -289,8 +289,7 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
               )}
             ></div>
             <p className={styles["BreathText-tips"]}>
-              Direct your breath to lower ribs, expand your chest 360°, keep
-              belly tight.
+              Direct your breath to lower ribs, expand your chest 360°.
             </p>
           </div>
           <div ref={refHoldInhale} className={styles["BreathText"]}>
@@ -314,7 +313,7 @@ const BreathSpace: React.FC<AppProps> = (props: AppProps) => {
               )}
             ></div>
             <p className={styles["BreathText-tips"]}>
-              Should be calm and done using your nose.
+              Should be calm and done slowly.
             </p>
           </div>
           <div ref={refHoldExhale} className={styles["BreathText"]}>
